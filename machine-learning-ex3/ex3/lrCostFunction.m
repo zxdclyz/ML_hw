@@ -38,10 +38,10 @@ grad = zeros(size(theta));
 
 
 
-
-
-
-
+h = sigmoid(X * theta);
+J = sum(-y.*log(h)-(1-y).*log(1-h))/m + lambda/(2*m)*sum(theta(2:end).^2);
+grad = (sum((h-y).*X)/m)' + lambda/m*theta;
+grad(1) = grad(1) - lambda/m*theta(1);
 
 
 
